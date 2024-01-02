@@ -1,0 +1,34 @@
+//Given an Array of Size N Find the Maximum subarray sum of length k
+// k= 4    , Using Sliding Window
+
+
+
+public class WindowSliding1 {
+    public static void main(String[] args) {
+
+        int arr[] = new int[]{-3, 4, -2, 5, 3, -2, 8, 2, 1, 4};
+
+
+        int k = 4;
+        int start = 0;
+        int end = k - 1;
+        int sum = 0;
+        for (int i = start; i <= end; i++) {
+            sum = sum + arr[i];
+        }
+        start =1;
+        end =k;
+        int maxEle = sum;
+
+        while(end<arr.length){
+            sum = sum-arr[start-1]+arr[end];
+
+            if(sum>maxEle){
+                maxEle=sum;
+            }
+            start++;
+            end++;
+        }
+        System.out.println(maxEle);
+    }
+}
